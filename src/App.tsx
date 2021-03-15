@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Swiper as SwiperReact, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Thumbs, Navigation, Controller } from 'swiper';
+
+import { classnames } from './utils';
+
+import classes from './App.module.css';
 
 // Import Swiper styles
 import 'swiper/swiper-bundle.css';
@@ -16,6 +20,16 @@ const photos = Array(10)
 
 function App() {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore>();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const handleChangeActiveIndex = useCallback((swiper: SwiperCore) => {
+    setActiveIndex(swiper.activeIndex);
+  }, []);
+  const isActive = useCallback(
+    (index: number) => {
+      return index === activeIndex;
+    },
+    [activeIndex],
+  );
   return (
     <div>
       <div style={{ width: 600, padding: 24 }}>
@@ -27,6 +41,7 @@ function App() {
           thumbs={{ swiper: thumbsSwiper }}
           spaceBetween={0}
           slidesPerView={1}
+          onActiveIndexChange={handleChangeActiveIndex}
         >
           {photos.map((photo, index) => (
             <SwiperSlide key={`slide-${index}`}>
@@ -46,7 +61,13 @@ function App() {
         >
           {thumbnails.map((photo, index) => (
             <SwiperSlide key={`thumb-${index}`}>
-              <img alt={`Thumbnail ${index}`} src={photo} />
+              <img
+                className={classnames(classes.thumbnail, {
+                  [classes.active]: isActive(index),
+                })}
+                alt={`Thumbnail ${index}`}
+                src={photo}
+              />
             </SwiperSlide>
           ))}
         </SwiperReact>
