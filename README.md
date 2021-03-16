@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# React Swiper Example
 
 ![CI/CD](https://github.com/phatnguyenuit/swiper-example/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/phatnguyenuit/swiper-example/branch/master/graph/badge.svg?token=:TOKEN)](https://codecov.io/gh/phatnguyenuit/swiper-example)
 ![License](https://img.shields.io/github/license/phatnguyenuit/swiper-example)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![UI](./docs/images/ui.png)
 
 ## Features
 

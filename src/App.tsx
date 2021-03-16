@@ -45,7 +45,13 @@ function App() {
         >
           {photos.map((photo, index) => (
             <SwiperSlide key={`slide-${index}`}>
-              <img alt={`Slide ${index}`} src={photo} />
+              <div className={classes.slide}>
+                <img
+                  className={classes.photo}
+                  alt={`Slide ${index}`}
+                  src={photo}
+                />
+              </div>
             </SwiperSlide>
           ))}
         </SwiperReact>
@@ -62,7 +68,7 @@ function App() {
           {thumbnails.map((photo, index) => (
             <SwiperSlide key={`thumb-${index}`}>
               <img
-                className={classnames(classes.thumbnail, {
+                className={classnames(classes.photo, classes.thumbnail, {
                   [classes.active]: isActive(index),
                 })}
                 alt={`Thumbnail ${index}`}

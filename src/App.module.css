@@ -1,9 +1,4 @@
-.photo {
-  border-radius: 4px;
-}
-
 .thumbnail {
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -11,3 +6,13 @@
   border: 2px solid red;
 }
 
+.slide {
+  width: 100%;
+  height: 100%;
+}
+
+.photo {
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+}
